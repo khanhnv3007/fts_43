@@ -10,6 +10,4 @@ class CreateExams < ActiveRecord::Migration
       t.timestamps null: false
     end
   end
-
-  add_index :relationships, [:follower_id, :followed_id], unique: true
 end
