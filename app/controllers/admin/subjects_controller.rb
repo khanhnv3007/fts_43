@@ -19,6 +19,10 @@ class Admin::SubjectsController < ApplicationController
     end
   end
 
+  def show
+    @subject = Subject.find_by id: params[:id]
+  end
+
   private
   def subject_params
     params.require(:subject).permit :name

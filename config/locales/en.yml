@@ -40,3 +40,23 @@ en:
     back: "Back"
     forgot_password: "Forgot your password?"
     sign_up: "Sign up"
+  admin:
+    subject:
+      title: "Subject management"
+      show:
+        questions: "All questions"
+      add:
+        btn: "Add subject"
+        title: "Add new subject"
+        success: "Add subject successfully!"
+        fail: "Add subject fail!"
+        new_question: "Add questions for this subject"
+      update:
+        btn: "Edit"
+        success: "Update subject successfully!"
+        fail: "Update subject fail!"
+      delete:
+        btn: "Delete"
+        confirm: "Are you sure?"
+        success: "Delete subject successfully!"
+        fail: "Delete subject fail!"
