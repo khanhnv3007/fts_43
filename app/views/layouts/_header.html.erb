@@ -6,6 +6,8 @@
         <li><%= link_to t(".home"), "#" %></li>
         <li><%= link_to t(".help"), "#" %></li>
         <li><%= link_to t(".all_users"), "#" %></li>
+        <li><%= link_to t(".log_out"), destroy_user_session_path,
+         method: :delete  if user_signed_in? %></li>
       </ul>
     </nav>
   </div>
