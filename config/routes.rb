@@ -4,8 +4,10 @@ Rails.application.routes.draw do
 
   devise_for :users, path_prefix: "d"
   resources :subjects
+  resources :users
   namespace :admin do
     root "static_pages#admin_home"
     resources :subjects
+    resources :users
   end
 end
