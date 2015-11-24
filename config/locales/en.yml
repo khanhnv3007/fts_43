@@ -32,7 +32,7 @@ en:
     change_password: "Change my password"
     reset_password_ins: "Send me reset password instructions"
     update: "Update"
-    cancel_acc: "Cancel my account"
+    cancel_acc: "Delete account"
     confirm: "Are you sure?"
     back: "Back"
     forgot_password: "Forgot your password?"
