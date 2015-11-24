@@ -3,6 +3,12 @@
     <h3><%= link_to subject.name, admin_subject_path(subject) %></h3>
     <p>
       <%= t "created_ago", time: "#{time_ago_in_words subject.created_at}" %>
+      <%= link_to t("admin.subject.update.btn"),
+        edit_admin_subject_path(subject), class: "btn btn-warning btn-xs
+          glyphicon glyphicon-edit" %> |
+      <%= link_to t("admin.subject.delete.btn"), admin_subject_path(subject),
+        method: :delete, data: {confirm: t("admin.subject.delete.confirm")},
+        class: "btn btn-danger btn-xs glyphicon glyphicon-remove" %>
     </p>
   </div>
 </div>

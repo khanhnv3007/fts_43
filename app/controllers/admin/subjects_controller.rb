@@ -24,6 +24,31 @@ class Admin::SubjectsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    @subject = Subject.find_by id: params[:id]
+    if @subject.update_attributes subject_params
+      flash[:success] = t "admin.subject.update.success"
+      redirect_to admin_subjects_path
+    else
+      flash.now[:danger] = t "admin.subject.update.fail"
+      render :edit
+    end
+  end
+
+  def destroy
+    @subject = Subject.find_by id: params[:id]
+    if @subject.destroy
+      flash[:success] = t "admin.subject.delete.success"
+      redirect_to admin_subjects_path
+    else
+      flash.now[:danger] = t "admin.subject.delete.fail"
+      render :index
+    end
+  end
+
   private
   def subject_params
     params.require(:subject).permit :name
