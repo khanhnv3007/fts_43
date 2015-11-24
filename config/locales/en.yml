@@ -14,7 +14,7 @@ en:
       setting: "Setting"
       profile: "Profile"
       account: "Account"
-      title: "Fels"
+      title: "FTS 43"
       team: "Team 2"
     footer:
       the: "The"
@@ -42,6 +42,7 @@ en:
     back: "Back"
     forgot_password: "Forgot your password?"
     sign_up: "Sign up"
+    new_questions: "Contribute question"
   admin:
     subject:
       title: "Subject management"
@@ -77,3 +78,11 @@ en:
       list_user: "List User"
       update_success: "Set role successfully!"
       update_fail: "Set role fail!"
+  questions:
+    new: "New Question"
+    success: "Operation successed!"
+    fail: "Operation failed"
+    create: "Create"
+    add_option: "More option"
+    is_correct: "is correct?"
+    remove: "Remove"

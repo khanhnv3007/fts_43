@@ -186,3 +186,26 @@ input {
 .background {
   background: image-url("Background-content.jpg") no-repeat center center fixed;
 }
+
+.remove_fields {
+  color: red;
+  cursor:pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.correct_answer {
+  color: green;
+  cursor:pointer;
+}
+
+.add_child {
+  cursor:pointer;
+  color: blue;
+  font-weight: bold;
+  font-size: 1.6em;
+  &:hover {
+    text-decoration: underline;
+  }
+}
