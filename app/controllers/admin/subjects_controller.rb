@@ -1,4 +1,6 @@
 class Admin::SubjectsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @subjects = Subject.page(params[:page])
       .per Settings.pagination.subjects_per_page
@@ -20,7 +22,6 @@ class Admin::SubjectsController < ApplicationController
   end
 
   def show
-    @subject = Subject.find_by id: params[:id]
   end
 
   private
