@@ -4,6 +4,7 @@ en:
   error: "error"
   subject:
     title: "Subject List"
+    no_question: "Subject hasn't question"
   layouts:
     header:
       website: "Framgia test system"
@@ -43,6 +44,10 @@ en:
     forgot_password: "Forgot your password?"
     sign_up: "Sign up"
     new_questions: "Contribute question"
+  exam:
+    start: "Start"
+    create_exam_complete: "Create exam successfully!"
+    create_exam_fail: " exam fail!"
   admin:
     subject:
       title: "Subject management"

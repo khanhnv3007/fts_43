@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125061518) do
+ActiveRecord::Schema.define(version: 20151125085301) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "content"
@@ -33,16 +33,16 @@ ActiveRecord::Schema.define(version: 20151125061518) do
     t.datetime "updated_at",         null: false
   end
 
-  add_index "exams", ["user_id", "subject_id"], name: "index_exams_on_user_id_and_subject_id", unique: true
+  add_index "exams", ["user_id", "subject_id"], name: "index_exams_on_user_id_and_subject_id"
 
   create_table "questions", force: :cascade do |t|
     t.integer  "subject_id"
     t.integer  "user_id"
-    t.integer  "status",     default: 0
-    t.integer  "type"
+    t.integer  "status",        default: 0
+    t.integer  "question_type"
     t.string   "content"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "questions", ["user_id", "subject_id"], name: "index_questions_on_user_id_and_subject_id"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20151125061518) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "results", ["exam_id", "question_id"], name: "index_results_on_exam_id_and_question_id", unique: true
+  add_index "results", ["exam_id", "question_id"], name: "index_results_on_exam_id_and_question_id"
 
   create_table "subjects", force: :cascade do |t|
     t.string   "name"
