@@ -1,0 +1,17 @@
+<tr id="user-<%= user.id %>">
+  <td><%= link_to user.name, user %></td>
+  <td><%= user.email %></td>
+  <td>
+    <%= form_for [:admin, user] do |f| %>
+      <%= f.hidden_field :role, value: user.admin? ? :user : :admin %>
+      <%= f.submit user.admin? ? t("admin.user.set_normal_user") : t("admin.user.set_admin_user"),
+        class: "btn btn-success btn-md" %>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to "", admin_user_path(user),
+      method: :delete, data: {confirm: t("admin.user.confirm")},
+      class: "btn btn-danger btn-md glyphicon glyphicon-trash" if user
+      != current_user %>
+  </td>
+</tr>

@@ -2,7 +2,7 @@ class Admin::SubjectsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @subjects = Subject.page(params[:page])
+    @subjects = @subjects.page(params[:page])
       .per Settings.pagination.subjects_per_page
   end
 
@@ -28,7 +28,6 @@ class Admin::SubjectsController < ApplicationController
   end
 
   def update
-    @subject = Subject.find_by id: params[:id]
     if @subject.update_attributes subject_params
       flash[:success] = t "admin.subject.update.success"
       redirect_to admin_subjects_path
@@ -39,7 +38,6 @@ class Admin::SubjectsController < ApplicationController
   end
 
   def destroy
-    @subject = Subject.find_by id: params[:id]
     if @subject.destroy
       flash[:success] = t "admin.subject.delete.success"
       redirect_to admin_subjects_path

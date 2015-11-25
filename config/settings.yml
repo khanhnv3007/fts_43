@@ -1,2 +1,3 @@
 pagination:
   subjects_per_page: 2
+  users_per_page: 5

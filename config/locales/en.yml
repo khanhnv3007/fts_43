@@ -2,6 +2,8 @@ en:
   form_content: "The form contains"
   created_ago: "Created %{time} ago."
   error: "error"
+  subject:
+    title: "Subject List"
   layouts:
     header:
       website: "Framgia test system"
@@ -43,6 +45,7 @@ en:
   admin:
     subject:
       title: "Subject management"
+      manage: "Manage Subject"
       show:
         questions: "All questions"
       add:
@@ -60,3 +63,16 @@ en:
         confirm: "Are you sure?"
         success: "Delete subject successfully!"
         fail: "Delete subject fail!"
+    user:
+      manage: "Manage User"
+      name: "Name"
+      email: "Email"
+      change_role: "Set admin"
+      delete: "Delete"
+      set_normal_user: "Set to user"
+      set_admin_user: "Set to admin"
+      confirm: "Are you sure delete this user?"
+      delete: "Delete"
+      list_user: "List User"
+      update_success: "Set role successfully!"
+      update_fail: "Set role fail!"
