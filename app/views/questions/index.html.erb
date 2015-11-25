@@ -1,0 +1,13 @@
+<h2><%= t "questions.suggested" %></h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t "questions.content" %></th>
+      <th><%= t "questions.subject" %></th>
+      <th><%= t "questions.status" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @questions %>
+  </tbody>
+</table>
