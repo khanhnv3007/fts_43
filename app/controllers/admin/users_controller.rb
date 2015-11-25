@@ -2,7 +2,8 @@ class Admin::UsersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @users = @users.page(params[:page])
+    @q = User.ransack params[:q]
+    @users = @q.result.page(params[:page])
       .per Settings.pagination.users_per_page
   end
 

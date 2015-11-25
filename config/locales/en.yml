@@ -64,6 +64,7 @@ en:
         success: "Delete subject successfully!"
         fail: "Delete subject fail!"
     user:
+      search_user: "Search user"
       manage: "Manage User"
       name: "Name"
       email: "Email"
