@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = current_user.questions
+    @questions = current_user.questions unless current_user.admin?
   end
 
   def edit
@@ -45,7 +45,7 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit :content, :subject_id, :user_id,
+    params.require(:question).permit :content, :subject_id, :user_id, :status,
       answers_attributes: [:id, :content, :is_correct]
   end
 end
