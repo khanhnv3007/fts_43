@@ -1,0 +1,10 @@
+<div class="panel panel-info fields">
+  <div class="panel-body">
+    <%= f.text_field :content, class: "form-control word_content" %>
+    <%= f.check_box :is_correct, class: "answer_answer" %>
+    <%= f.label :is_correct, t("questions.is_correct"),
+     class: "correct_answer" %>
+    <%= f.label t("questions.remove"),
+      class: "glyphicon glyphicon-remove remove_fields" %>
+  </div>
+</div>

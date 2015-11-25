@@ -8,6 +8,7 @@ class Ability
     else
       can [:update, :show], User, id: user.id
       can [:index], Subject
+      can [:new, :create, :index], Question
     end
   end
 end

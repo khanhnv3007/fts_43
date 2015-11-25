@@ -1,0 +1,29 @@
+<%= form_for [current_user, @question] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :status, value: current_user.admin? ? :approved : :waiting  %>
+
+  <%= f.label :subject %>
+  <%= f.select :subject_id,
+    options_from_collection_for_select(@subjects, :id, :name),
+    class: "form-control" %>
+
+  <%= f.label :content %>
+  <%= f.text_field :content, class: "form-control" %>
+
+  <%= f.label :option %>
+  <div id="answers">
+    <%= f.fields_for :answers do |answer| %>
+      <div class="answers">
+        <%= render "answer_form", f: answer %>
+      </div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= add_child_button t("questions.add_option"), :answers,
+      "#answers" %>
+    <%= new_fields_template f, :answers %>
+  </div>
+  <%= f.submit t("questions.create"), class: "btn btn-primary" %>
+<% end %>
