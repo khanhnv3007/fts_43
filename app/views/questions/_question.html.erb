@@ -1,0 +1,12 @@
+<tr>
+  <td><%= question.content %></td>
+  <td><%= question.subject.name %></td>
+  <td><%= question.status %></td>
+  <td>
+    <%= link_to "", edit_user_question_path(current_user, question.id),
+     class: "btn btn-warning btn-md glyphicon glyphicon-edit" %>
+    <%= link_to "", user_question_path(current_user.id, question.id),
+      method: :delete, data: {confirm: t("questions.confirm")},
+      class: "btn btn-danger btn-md glyphicon glyphicon-trash" %>
+  </td>
+</tr>
