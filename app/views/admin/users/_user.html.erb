@@ -11,7 +11,7 @@
   <td>
     <%= link_to "", admin_user_path(user),
       method: :delete, data: {confirm: t("admin.user.confirm")},
-      class: "btn btn-danger btn-md glyphicon glyphicon-trash" if user
-      != current_user %>
+      class: "btn btn-danger btn-md glyphicon glyphicon-trash" if user !=
+      current_user %>
   </td>
 </tr>

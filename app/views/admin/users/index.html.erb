@@ -1,6 +1,9 @@
 <% provide :title, t("admin.user.list_user") %>
 <h1><%= t "admin.user.list_user" %></h1>
 <br><br>
+<p>
+  <%= render "search_form" %>
+</p>
 <div id="section_admin_user">
   <table id="users_record" class="table table-bordered">
     <tbody>
