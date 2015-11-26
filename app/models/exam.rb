@@ -15,6 +15,12 @@ class Exam < ActiveRecord::Base
       (Time.zone.now - self.created_at).to_i
   end
 
+  def words_correct
+    correct = self.results.where(is_correct: 1).size
+    total = self.questions.size
+    [correct, total].join("/")
+  end
+
   private
   def generate_question
     self.questions = self.subject.questions

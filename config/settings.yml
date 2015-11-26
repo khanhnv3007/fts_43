@@ -1,13 +1,16 @@
 pagination:
   subjects_per_page: 2
   users_per_page: 5
+  exams_per_page: 10
 exam:
   questions_per_exam: 10
   time_in_minutes: 10
   sec: 60
   option:
- - all
- - uncheck
+    - uncheck
+    - checked
+    - all
+  all: "all"
 questions:
   options:
     - all
