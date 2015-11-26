@@ -1,0 +1,8 @@
+<% provide :title, t("exam.title") %>
+<h1> <%= t "exam.learned_exam" %> </h1>
+<% if current_user.exams.any? %>
+  <% current_user.exams.each do |exam| %>
+    <br>
+    <%= link_to "#{t("exam.title")} #{exam.id}", exam %>
+  <% end %>
+<% end %>

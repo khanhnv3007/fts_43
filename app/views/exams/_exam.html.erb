@@ -1,0 +1,26 @@
+<div id="clockdiv">
+  <span id="time-remain" data-time-remain="<%= @time_remain %>"></span>
+  <div>
+    <span id="minutes"></span>
+    <div class="smalltext"><%= t "time.minutes" %></div>
+  </div>
+  <div>
+    <span id="seconds"></span>
+    <div class="smalltext"><%= t "time.seconds" %></div>
+  </div>
+</div>
+<p>
+  <%= form_for @exam do |f| %>
+    <ol>
+      <%= f.hidden_field :status, value: :uncheck %>
+      <%= f.fields_for :results do |result| %>
+        <%= render "question", f: result %>
+      <% end %>
+    </ol>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-5">
+        <%= f.submit t("exam.submit"), class: "btn btn-info" %>
+      </div>
+    </div>
+  <% end %>
+</p>

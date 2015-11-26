@@ -4,6 +4,7 @@ en:
   error: "error"
   subject:
     title: "Subject List"
+    name: "Subject"
     no_question: "Subject hasn't question"
   layouts:
     header:
@@ -45,9 +46,18 @@ en:
     sign_up: "Sign up"
     new_questions: "Contribute question"
   exam:
+    title: "Examination"
+    learned_exam: "Learned Examination"
     start: "Start"
     create_exam_complete: "Create exam successfully!"
     create_exam_fail: " exam fail!"
+    submit: "Submit"
+    update_exam_complete: "You've complete examination!"
+    update_exam_fail: "Error! Please try again!"
+    pending_check: "Your exam is pending check!"
+  time:
+    minutes: "Minutes"
+    seconds: "Seconds"
   admin:
     subject:
       title: "Subject management"

@@ -3,3 +3,5 @@ pagination:
   users_per_page: 5
 exam:
   questions_per_exam: 10
+  time_in_minutes: 10
+  sec: 60

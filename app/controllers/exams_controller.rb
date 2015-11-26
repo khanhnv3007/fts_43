@@ -4,6 +4,10 @@ class ExamsController < ApplicationController
   def index
   end
 
+  def show
+    @time_remain = @exam.time_remaining
+  end
+
   def create
     @exam.user_id = current_user.id
     if @exam.save
@@ -15,8 +19,17 @@ class ExamsController < ApplicationController
     end
   end
 
+  def update
+    if @exam.update_attributes exam_params
+      flash[:success] = t "exam.create_exam_complete"
+    else
+      flash[:danger] = t "exam.create_exam_fail"
+    end
+    redirect_to @exam
+  end
+
   private
   def exam_params
-    params.require(:exam).permit :subject_id
+    params.require(:exam).permit :subject_id, :status, results_attributes: [:id, :answer_id]
   end
 end

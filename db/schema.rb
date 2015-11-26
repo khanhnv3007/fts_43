@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125085301) do
+ActiveRecord::Schema.define(version: 20151126060401) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "content"
@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 20151125085301) do
   create_table "exams", force: :cascade do |t|
     t.integer  "subject_id"
     t.integer  "user_id"
-    t.integer  "status"
+    t.integer  "status",             default: 0
     t.integer  "duration"
     t.integer  "number_of_question"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   add_index "exams", ["user_id", "subject_id"], name: "index_exams_on_user_id_and_subject_id"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20151125085301) do
     t.string   "content"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "answer_id"
   end
 
   add_index "results", ["exam_id", "question_id"], name: "index_results_on_exam_id_and_question_id"

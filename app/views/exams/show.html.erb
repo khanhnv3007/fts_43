@@ -1,0 +1,6 @@
+<% provide :title, t("exam.title") %>
+<h1><%= t "exam.title" %></h1>
+<%= t "subject.name" %>:
+<%= link_to @exam.subject.name, @exam.subject %>
+<br>
+<%= render @exam.start? ? "exam" : "exam_result" %>

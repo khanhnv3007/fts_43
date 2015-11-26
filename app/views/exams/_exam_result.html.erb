@@ -1,0 +1,8 @@
+<% if @exam.uncheck? %>
+  <div class="jumbotron" style="color:red">
+    <%= t "exam.pending_check" %>
+  </div>
+<% else %>
+  <%= t "user" %>: <%= link_to @exam.user.name, @exam.user %>:
+  <%= t "exam" %>: <%= link_to @exam.id, @exam %>
+<% end %>

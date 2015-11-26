@@ -4,6 +4,7 @@ class Admin::SubjectsController < ApplicationController
   def index
     @subjects = @subjects.page(params[:page])
       .per Settings.pagination.subjects_per_page
+    @exam = Exam.new
   end
 
   def new
