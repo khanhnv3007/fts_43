@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :questions
   end
-
+  resources :exams
   namespace :admin do
     root "static_pages#admin_home"
     resources :subjects

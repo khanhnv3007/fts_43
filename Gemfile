@@ -12,6 +12,7 @@ gem "jbuilder", "~> 2.0"
 gem "devise"
 gem "sdoc", "~> 0.4.0", group: :doc
 gem "config"
+gem "faker"
 gem "kaminari"
 gem "ransack"
 gem "cancancan"
@@ -23,4 +24,3 @@ group :development do
   gem "web-console", "~> 2.0"
   gem "spring"
 end
-

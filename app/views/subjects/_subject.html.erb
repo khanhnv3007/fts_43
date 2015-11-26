@@ -4,5 +4,9 @@
     <p>
       <%= t "created_ago", time: "#{time_ago_in_words subject.created_at}" %>
     </p>
+    <%= form_for @exam do |f| %>
+      <%= f.hidden_field :subject_id, value: subject.id %>
+      <%= f.submit t("exam.start"), class: "btn btn-success" %>
+    <% end %>
   </div>
 </div>
