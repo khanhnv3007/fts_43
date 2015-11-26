@@ -5,6 +5,9 @@ exam:
   questions_per_exam: 10
   time_in_minutes: 10
   sec: 60
+  option:
+ - all
+ - uncheck
 questions:
   options:
     - all
