@@ -4,8 +4,16 @@ class Exam < ActiveRecord::Base
 
   has_many :results, dependent: :destroy
   has_many :questions, through: :results
+  enum status: [:start,:uncheck,:checked]
+
+  accepts_nested_attributes_for :results
 
   validate :generate_question, on: :create
+
+  def time_remaining
+    Settings.exam.time_in_minutes * Settings.exam.sec -
+      (Time.zone.now - self.created_at).to_i
+  end
 
   private
   def generate_question

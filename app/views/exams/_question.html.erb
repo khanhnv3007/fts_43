@@ -1,0 +1,16 @@
+<div class="fields">
+  <li>
+    <%= f.object.question.content %>
+  </li>
+  <br>
+  <ol type="a">
+    <% f.object.question.answers.each do |answer| %>
+      <li>
+        <label class="radio radio-answer">
+          <%= f.radio_button :answer_id, answer.id %>
+          <%= answer.content %>
+        </label>
+      </li>
+    <% end %>
+  </ol>
+</div>
