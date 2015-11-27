@@ -13,5 +13,4 @@ class Question < ActiveRecord::Base
     reject_if: proc {|answer| answer[:content].blank?}
 
   validates :content, presence: true
-
 end
