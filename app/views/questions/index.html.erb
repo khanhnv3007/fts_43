@@ -1,4 +1,4 @@
-<h2><%= t "questions.suggested" %></h2>
+<h2><%= t "questions.show" %></h2>
 <table class="table">
   <thead>
     <tr>
@@ -11,3 +11,7 @@
     <%= render @questions %>
   </tbody>
 </table>
+<div>
+  <%= link_to t("questions.new"), new_user_question_path(current_user),
+    class: "btn btn-success" %>
+</div>
