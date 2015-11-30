@@ -17,6 +17,8 @@ gem "kaminari"
 gem "ransack"
 gem "cancancan"
 gem "sidekiq"
+gem "whenever"
+gem "time_difference"
 group :development, :test do
   gem "byebug"
 end

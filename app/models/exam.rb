@@ -12,6 +12,25 @@ class Exam < ActiveRecord::Base
 
   validate :generate_question, on: :create
 
+  def self.check_exam_daily
+    Exam.all.each do |exam|
+      if exam.start? && Time.now - exam.created_at > 8.hours
+        exam.destroy
+      end
+      if exam.start? && Time.now - exam.created_at < 8.hours
+        UserMailer.send_exam_reminder(exam).deliver_now
+      end
+    end
+  end
+
+  def self.check_exam_monthly
+    Exam.all.each do |exam|
+      if exam.start? && Time.now - exam.created_at > 8.hours
+        exam.destroy
+      end
+    end
+  end
+
   def time_remaining
     Settings.exam.time_in_minutes * Settings.exam.sec -
       (Time.zone.now - self.created_at).to_i
