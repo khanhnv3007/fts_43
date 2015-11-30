@@ -16,7 +16,10 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = current_user.questions unless current_user.admin?
+    option = params[:option].nil? ? Settings.questions.all : params[:option]
+    @questions = current_user.admin? ?
+      Question.send(option) :
+      Question.send(option, current_user.id)
   end
 
   def edit

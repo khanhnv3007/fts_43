@@ -5,3 +5,10 @@ exam:
   questions_per_exam: 10
   time_in_minutes: 10
   sec: 60
+questions:
+  options:
+    - all
+    - waiting
+    - approved
+    - edited
+  all: "all"
