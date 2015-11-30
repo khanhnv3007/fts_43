@@ -1,4 +1,3 @@
-
 3.times do
   name = Faker::Lorem.sentence
   subject = Subject.create! name: name
