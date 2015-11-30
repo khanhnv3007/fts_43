@@ -7,8 +7,14 @@
           <% if current_user.admin? %>
             <li><%= link_to t("admin.user.manage"), admin_users_path %></li>
             <li><%= link_to t("admin.subject.manage"), admin_subjects_path %></li>
+            <li><%= link_to t("admin.exam.manage"), admin_exams_path %></li>
           <% end %>
           <li><%= link_to t("questions.show"), user_questions_path(current_user) %></li>
+          <li><%= link_to t("user.new_questions"), new_user_question_path(current_user) %></li>
+          <% if current_user.user? %>
+            <li><%= link_to t("subject.name"), subjects_path %></li>
+            <li><%= link_to t("exam.name"), exams_path %></li>
+          <% end %>
           <li>
             <%= link_to t("layouts.header.profile"),
               edit_user_registration_path(current_user) %>
