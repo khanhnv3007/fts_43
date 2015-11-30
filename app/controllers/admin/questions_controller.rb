@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < ApplicationController
   load_and_authorize_resource
 
   def new
@@ -16,7 +16,8 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.send(params[:option]) unless params[:option].nil? || params[:option] == "all"
+    option = params[:option].nil? ? Settings.questions.all : params[:option]
+    @questions = Question.send(option)
   end
 
   def edit

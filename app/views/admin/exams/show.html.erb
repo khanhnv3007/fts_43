@@ -1,4 +1,4 @@
 <% provide :title, t("exam.title") %>
 <h1><%= t "exam.title" %></h1>
 <br><br>
-<%= render @exam.start? ? "exam" : "exam_result" %>
+<%= render @exam.checked? ? "exam_result" : "exam_check" %>

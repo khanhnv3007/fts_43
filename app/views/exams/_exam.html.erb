@@ -9,18 +9,27 @@
     <div class="smalltext"><%= t "time.seconds" %></div>
   </div>
 </div>
-<p>
-  <%= form_for @exam do |f| %>
-    <ol>
-      <%= f.hidden_field :status, value: :uncheck %>
-      <%= f.fields_for :results do |result| %>
-        <%= render "question", f: result %>
-      <% end %>
-    </ol>
-    <div class="row">
-      <div class="col-md-2 col-md-offset-5">
-        <%= f.submit t("exam.submit"), class: "btn btn-info" %>
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h4 class="text-center">
+      <%= t "subject.name" %>:
+      <%= link_to @exam.subject.name, @exam.subject %>
+    </h4>
+</div>
+<div class="panel-body">
+  <p>
+    <%= form_for @exam do |f| %>
+      <ol>
+        <%= f.hidden_field :status, value: :uncheck %>
+        <%= f.fields_for :results do |result| %>
+          <%= render "question", f: result %>
+        <% end %>
+      </ol>
+      <div class="row">
+        <div class="col-md-2 col-md-offset-5">
+          <%= f.submit t("exam.submit"), class: "btn btn-info" %>
+        </div>
       </div>
-    </div>
-  <% end %>
-</p>
+    <% end %>
+  </p>
+</div>

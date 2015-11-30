@@ -1,0 +1,18 @@
+<li>
+  <%= f.object.question.content %>
+</li>
+<ol type="a">
+  <% f.object.question.answers.each do |answer| %>
+    <li style="color:<%= answer.is_correct? ? "green" : "red" %>">
+      <%= check_box_tag :answer_id, answer.id, f.object.
+        answer.id == answer.id ? true : false, disabled: true %>
+      <label> <%= answer.content %> </label>
+    </li>
+  <% end %>
+</ol>
+<div class="checkbox">
+  <label>
+    <%= f.check_box :is_correct %> <%= t "admin.exam.is_correct" %>
+  </label>
+</div>
+

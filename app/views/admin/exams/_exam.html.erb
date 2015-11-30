@@ -1,0 +1,6 @@
+<tr>
+  <td> <%= link_to exam.user.name, exam.user %> </td>
+  <td> <%= "#{t("exam.name")} #{exam.id}" %> </td>
+  <td> <%= link_to "", admin_exam_path(exam), class: "glyphicon
+    glyphicon-edit" %> </td>
+</tr>
