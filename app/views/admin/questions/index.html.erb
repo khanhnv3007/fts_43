@@ -1,0 +1,35 @@
+<h2><%= t "questions.show" %></h2>
+<h3>
+  <%= form_for user_questions_path(current_user), method: :get do |f| %>
+    <div class="row">
+      <% Settings.questions.options.each do |option| %>
+        <div class="col-md-2">
+          <%= radio_button_tag :option, option,
+            (checked = true if params[:option] == option),
+              class: "radio_word", value: option %>
+          <%= option %>
+        </div>
+        <% end %>
+        <div class="col-md-off-set-4 col-md-2">
+          <%= f.submit t("questions.filter"),
+            class: "btn btn-primary form-control"%>
+        </div>
+    </div>
+  <% end %>
+</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t "questions.content" %></th>
+      <th><%= t "questions.subject" %></th>
+      <th><%= t "questions.status" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @questions %>
+  </tbody>
+</table>
+<div>
+  <%= link_to t("questions.new"), new_user_question_path(current_user),
+    class: "btn btn-success" %>
+</div>

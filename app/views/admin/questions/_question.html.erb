@@ -3,6 +3,15 @@
   <td><%= question.subject.name %></td>
   <td><%= question.status %></td>
   <td>
+    <% if question.waiting? %>
+      <%= form_for [current_user, question] do |f| %>
+        <%= f.hidden_field :status, value: :approved %>
+        <%= f.submit t("questions.approve"),
+          class: "btn btn-success btn-md" %>
+      <% end %>
+    <% end %>
+  </td>
+  <td>
     <%= link_to "", edit_user_question_path(current_user, question.id),
      class: "btn btn-warning btn-md glyphicon glyphicon-edit" %>
     <%= link_to "", user_question_path(current_user.id, question.id),

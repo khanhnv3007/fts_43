@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     root "static_pages#admin_home"
     resources :subjects
     resources :users
+    resources :exams
+    resources :questions
   end
 end
