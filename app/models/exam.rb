@@ -24,14 +24,14 @@ class Exam < ActiveRecord::Base
   end
 
   def send_exam_noti
-    SendExamNoti.perform_async self.id if self.checked
+    SendExamNoti.perform_async self.id if self.checked?
   end
 
   private
   def generate_question
-    self.questions = self.subject.questions
+    self.questions = self.subject.questions.approved
       .order("RANDOM()").limit Settings.exam.questions_per_exam
     errors.add :create, I18n.t("exam.create_exam_fail") if self.subject
-      .questions.size == 0
+      .questions.approved.size == 0
   end
 end

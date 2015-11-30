@@ -10,7 +10,7 @@
         method: :delete, data: {confirm: t("admin.subject.delete.confirm")},
         class: "btn btn-danger btn-md glyphicon glyphicon-trash" %>
     </p>
-    <%= form_for @exam do |f| %>
+    <%= form_for [:admin, @exam] do |f| %>
       <%= f.hidden_field :subject_id, value: subject.id %>
       <%= f.submit t("exam.start"), class: "btn btn-success" %>
     <% end %>

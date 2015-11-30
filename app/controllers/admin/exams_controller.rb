@@ -10,6 +10,17 @@ class Admin::ExamsController < ApplicationController
   def show
   end
 
+  def create
+    @exam.user_id = current_user.id
+    if @exam.save
+      flash[:success] = t "exam.create_exam_complete"
+      redirect_to @exam
+    else
+      flash[:danger] = @exam.errors.full_messages.join(", ")
+      redirect_to admin_subjects_path
+    end
+  end
+
   def update
     if @exam.update exam_params
       flash[:success] = t "admin.exam.checked_success"
@@ -21,6 +32,6 @@ class Admin::ExamsController < ApplicationController
 
   private
   def exam_params
-    params.require(:exam).permit :status, results_attributes: [:id, :is_correct]
+    params.require(:exam).permit :subject_id, :status, results_attributes: [:id, :is_correct]
   end
 end
