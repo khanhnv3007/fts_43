@@ -46,6 +46,7 @@ en:
     sign_up: "Sign up"
     new_questions: "Contribute question"
     remember_me: "Remember me"
+    update: "Update info"
   exam:
     title: "Exam management"
     filter: "Filter"
@@ -127,6 +128,9 @@ en:
     delete: "Delete"
   mail:
     exam_subject: "Exam Results Notification"
-    hi: "Dear"
+    hi: "Hi "
     content: "Your exam has been checked by admin, exam result: "
-    see_exam: "You can review your exam at: "
+    see_exam: "You can access your exam at: "
+    reminder: "Exam reminder"
+    exam: "Exam"
+    remind: "Please finish your exam before it can be deleted automatically tomorrow."
