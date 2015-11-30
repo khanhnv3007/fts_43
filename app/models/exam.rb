@@ -1,4 +1,6 @@
 class Exam < ActiveRecord::Base
+
+  after_update :send_exam_noti
   belongs_to :subject
   belongs_to :user
 
@@ -15,10 +17,14 @@ class Exam < ActiveRecord::Base
       (Time.zone.now - self.created_at).to_i
   end
 
-  def words_correct
+  def question_correct
     correct = self.results.where(is_correct: 1).size
     total = self.questions.size
     [correct, total].join("/")
+  end
+
+  def send_exam_noti
+    SendExamNoti.perform_async self.id if self.checked
   end
 
   private
