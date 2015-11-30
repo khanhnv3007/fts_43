@@ -8,8 +8,20 @@
         <%= t "admin.subject.show.questions" %>
       </h3>
     </div>
-    <div class="row">
-    <%= render @subject.questions %>
-    </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= t "questions.content" %></th>
+        <th><%= t "questions.subject" %></th>
+        <th><%= t "questions.status" %></th>
+        <th><%= t "questions.approve" %></th>
+        <th><%= t "questions.edit" %></th>
+        <th><%= t "questions.delete" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @subject.questions %>
+    </tbody>
+  </table>
   </div>
 </div>

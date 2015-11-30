@@ -6,14 +6,14 @@
         <div class="col-md-2">
           <%= radio_button_tag :option, option,
             (checked = true if params[:option] == option),
-              class: "radio_word", value: option %>
+              class: "radio_exams", value: option %>
           <%= option %>
         </div>
-        <% end %>
-        <div class="col-md-off-set-4 col-md-2">
-          <%= f.submit t("questions.filter"),
-            class: "btn btn-primary form-control"%>
-        </div>
+      <% end %>
+      <div class="col-md-off-set-4 col-md-2">
+        <%= f.submit t("questions.filter"),
+          class: "btn btn-primary form-control"%>
+      </div>
     </div>
   <% end %>
 </h3>
