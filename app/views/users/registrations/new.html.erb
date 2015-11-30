@@ -3,35 +3,24 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :name %><br/>
-    <%= f.text_field :name %>
-  </div>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
 
-  <div class="field">
-    <%= f.label :chatwork_id %><br/>
-    <%= f.text_field :chatwork_id %>
-  </div>
+    <%= f.label :chatwork_id %>
+    <%= f.text_field :chatwork_id, class: "form-control" %>
 
-  <div class="field">
-    <%= f.label :email %><br/>
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, class: "form-control" %>
 
-  <div class="field">
     <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br/>
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br/>
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="row">
+    <div class="col-md-offset-5 col-md-2">
+      <%= f.submit t("static_pages.home.sign_up"), class:"btn btn-info" %>
+    </div>
   </div>
 <% end %>
