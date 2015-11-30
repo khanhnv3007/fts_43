@@ -198,7 +198,7 @@ DEPENDENCIES
   rails (= 4.2.4)
   rails_12factor
   ransack
-  sass-rails (~> 5.0)
+  sass-rails
   sdoc (~> 0.4.0)
   sidekiq
   sqlite3
