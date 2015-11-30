@@ -4,7 +4,8 @@
 
   15.times do
     question = subject.questions.build content: Faker::Lorem.characters(5)
-    question.type = 0
+    question.question_type = 1
+    question.status = 1
     question.user_id = User.order("RANDOM()").limit 1
       question.answers = [
         Answer.new(content: Faker::Lorem.characters(5), is_correct: true),

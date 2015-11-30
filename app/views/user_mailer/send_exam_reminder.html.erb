@@ -1,6 +1,5 @@
 <h1><%= @exam.subject.name%></h1>
 <p><%= t "mail.hi" %> <%= @user.name %>,</p>
-<%= t "mail.content" %>
-<%= @exam.question_correct %>.
+<%= t "mail.remind" %>
 <%= t "mail.see_exam" %>
 <%= link_to t("mail.exam"), exam_path(@exam) %>
