@@ -2,7 +2,8 @@ class Admin::ExamsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @exams = @exams.page(params[:page])
+    option = params[:option].nil? ? Settings.exam.all : params[:option]
+    @exams =  Exam.send(option).page(params[:page])
       .per Settings.pagination.exams_per_page
   end
 
@@ -15,7 +16,7 @@ class Admin::ExamsController < ApplicationController
     else
       flash[:danger] = t "admin.exam.checked_failed"
     end
-    redirect_to admin_exams_path
+    redirect_to @exam
   end
 
   private

@@ -105,6 +105,8 @@ en:
       checked_success: "Check exam successfully!"
       checked_failed: "Check exam fail!"
       filter: "Filter"
+      true_answer: "True answer"
+      false_answer: "False answer"
   questions:
     new: "New Question"
     success: "Operation successed!"
