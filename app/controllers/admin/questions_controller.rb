@@ -16,8 +16,9 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def index
+    @q = Question.ransack params[:q]
     option = params[:option].nil? ? Settings.questions.all : params[:option]
-    @questions = Question.send(option).page(params[:page])
+    @questions = @q.result.includes(:subject).send(option).page(params[:page])
       .per Settings.pagination.questions_per_page
   end
 
