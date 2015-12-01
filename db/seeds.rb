@@ -1,20 +1,31 @@
-3.times do
-  name = Faker::Lorem.sentence
-  subject = Subject.create! name: name
+Subject.create!(name: "Ruby on rails")
 
-  15.times do
-    question = subject.questions.build content: Faker::Lorem.characters(5)
-    question.question_type = 1
-    question.status = 1
-    question.user_id = User.order("RANDOM()").limit 1
-      question.answers = [
-        Answer.new(content: Faker::Lorem.characters(5), is_correct: true),
-        Answer.new(content: Faker::Lorem.characters(5), is_correct: false),
-        Answer.new(content: Faker::Lorem.characters(5), is_correct: false),
-        Answer.new(content: Faker::Lorem.characters(5), is_correct: false)
-      ].shuffle
-    question.save!
+Subject.create!(name: "Git")
+
+Subject.create!(name: "Ruby")
+
+30.times do |n|
+  name = Faker::Lorem.sentence
+  question_type = 0
+  if n%2 == 0
+    question_type = 1
   end
+  question = Question.create!(content: name, subject_id: 1, user_id: 1, question_type: question_type, status: 1)
+  question_id = question.id
+  answer_correct = Faker::Lorem.word
+  Answer.create!(content: answer_correct, is_correct: true, question_id: question_id)
+  3.times do |t|
+    answer_incorrect = Faker::Lorem.word
+    Answer.create!(content: answer_incorrect, is_correct: false, question_id: question_id)
+  end
+end
+
+10.times do |n|
+  name = Faker::Lorem.sentence
+  question = Question.create!(content: name, subject_id: 1, user_id: 1, question_type: 2)
+  question_id = question.id
+  answer_correct = Faker::Lorem.word
+  Answer.create!(content: answer_correct, is_correct: true, question_id: question_id)
 end
 
 User.create!(

@@ -19,3 +19,7 @@ questions:
     - approved
     - edited
   all: "all"
+  type:
+    single: single
+    multiple: multiple
+    text: text
