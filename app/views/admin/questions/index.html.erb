@@ -31,7 +31,7 @@
   </tbody>
 </table>
 <div>
-  <%= link_to t("questions.new"), new_user_question_path(current_user),
+  <%= link_to t("questions.new"), new_admin_question_path,
     class: "btn btn-success" %>
 </div>
 <%= paginate @questions %>

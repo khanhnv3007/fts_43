@@ -9,6 +9,9 @@
       <%= link_to "", admin_subject_path(subject),
         method: :delete, data: {confirm: t("admin.subject.delete.confirm")},
         class: "btn btn-danger btn-md glyphicon glyphicon-trash" %>
+      <%= link_to "",
+        new_admin_question_path(subject_id: subject.id),
+        class: "btn btn-success btn-info glyphicon glyphicon-plus-sign" %>
     </p>
     <%= form_for [:admin, @exam] do |f| %>
       <%= f.hidden_field :subject_id, value: subject.id %>

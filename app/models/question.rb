@@ -4,6 +4,7 @@ class Question < ActiveRecord::Base
   belongs_to :subject
   belongs_to :user
   enum status: {waiting: 0, approved: 1, edited: 2}
+  enum question_type: {single: 0, multiple: 1, text: 2}
 
   has_many :answers, dependent: :destroy
   has_many :results, dependent: :destroy

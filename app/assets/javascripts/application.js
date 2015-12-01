@@ -14,30 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(function(){
-  $("#btn_word").click(function(){
-    var flag = false;
-    $("input[type=checkbox]").each(function(){
-      if(this.checked) {
-        flag = true;
-        if($(this).parent().find(".answer_content").val().trim() == ""){
-          flag = false;
-        }
-      }
-    });
-    return flag;
-  });
 
-  $("#answers").on("click", ".remove_fields", function(){
-    $(this).closest("div.answers").remove();
-  });
+function remove_fields(link) {
+  $(link).prev("input[type=hidden]").val("1");
+  $(link).closest(".fields").hide();
+}
 
-  $(".add_child").click(function() {
-    var association = $(this).attr("data-association");
-    var regexp = new RegExp("new_" + association, "g");
-    var new_id = new Date().getTime();
-    $($(this).attr("target")).append(window[association + "_form"]
-      .replace(regexp, new_id));
-    return false;
-  });
-});
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g")
+  $(link).parent().before(content.replace(regexp, new_id));
+  return false;
+}

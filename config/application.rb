@@ -24,5 +24,6 @@ module BaseApp
     config.active_record.raise_in_transactional_callbacks = true
     config.time_zone = "Asia/Bangkok"
     config.active_record.default_timezone = :local
+    config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end
