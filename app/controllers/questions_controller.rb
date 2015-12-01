@@ -16,7 +16,9 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.send(params[:option]) unless params[:option].nil? || params[:option] == "all"
+    option = params[:option].nil? ? Settings.questions.all : params[:option]
+    @questions = current_user.questions.send(option).page(params[:page])
+      .per Settings.pagination.questions_per_page
   end
 
   def edit

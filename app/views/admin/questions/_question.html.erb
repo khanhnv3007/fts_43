@@ -4,7 +4,7 @@
   <td><%= question.status %></td>
   <td>
     <% if question.waiting? %>
-      <%= form_for [current_user, question] do |f| %>
+      <%= form_for [:admin, question] do |f| %>
         <%= f.hidden_field :status, value: :approved %>
         <%= f.submit t("questions.approve"),
           class: "btn btn-success btn-md" %>
@@ -12,11 +12,11 @@
     <% end %>
   </td>
   <td>
-    <%= link_to "", edit_user_question_path(current_user, question.id),
+    <%= link_to "", edit_admin_question_path(question.id),
       class: "btn btn-warning btn-md glyphicon glyphicon-edit" %>
   </td>
   <td>
-    <%= link_to "", user_question_path(current_user.id, question.id),
+    <%= link_to "", admin_question_path(question.id),
       method: :delete, data: {confirm: t("questions.confirm")},
       class: "btn btn-danger btn-md glyphicon glyphicon-trash" %>
   </td>

@@ -29,8 +29,7 @@ $(function(){
   });
 
   $("#answers").on("click", ".remove_fields", function(){
-    $(this).prev().val(1);
-    $(this).parent().parent().hide(100);
+    $(this).closest("div.answers").remove();
   });
 
   $(".add_child").click(function() {
