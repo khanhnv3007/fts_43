@@ -17,7 +17,6 @@ $gray-medium-light: #eaeaea;
 
 body {
   padding-top: 60px;
-  background: image-url("Background.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -180,11 +179,9 @@ input {
 }
 
 .jumbotron {
-  background: image-url("Background-content.jpg") no-repeat center center fixed;
   text-align: left;
 }
 .background {
-  background: image-url("Background-content.jpg") no-repeat center center fixed;
 }
 
 .remove_fields {

@@ -3,4 +3,4 @@
 <%= t "mail.content" %>
 <%= @exam.question_correct %>.
 <%= t "mail.see_exam" %>
-<%= link_to t("mail.exam"), exam_path(@exam) %>
+<%= link_to t("mail.exam"), exam_url(@exam) %>

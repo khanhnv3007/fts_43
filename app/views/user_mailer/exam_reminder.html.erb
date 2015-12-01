@@ -2,4 +2,4 @@
 <p><%= t "mail.hi" %> <%= @user.name %>,</p>
 <%= t "mail.remind" %>
 <%= t "mail.see_exam" %>
-<%= link_to t("mail.exam"), exam_path(@exam) %>
+<%= link_to t("mail.exam"), exam_url(@exam) %>
