@@ -17,7 +17,8 @@ class Admin::QuestionsController < ApplicationController
 
   def index
     option = params[:option].nil? ? Settings.questions.all : params[:option]
-    @questions = Question.send(option)
+    @questions = Question.send(option).page(params[:page])
+      .per Settings.pagination.questions_per_page
   end
 
   def edit
@@ -28,7 +29,7 @@ class Admin::QuestionsController < ApplicationController
   def update
     if @question && @question.update_attributes(question_params)
       flash[:sucess] = t "questions.success"
-      redirect_to user_questions_path current_user
+      redirect_to admin_questions_path
     else
       flash[:danger] = t "questions.fail"
       render :edit

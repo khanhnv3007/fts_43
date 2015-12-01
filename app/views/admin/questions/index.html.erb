@@ -1,7 +1,7 @@
 <% provide :title, t("questions.show") %>
 <h2><%= t "questions.show" %></h2>
 <h3>
-  <%= form_for user_questions_path(current_user), method: :get do |f| %>
+  <%= form_for admin_questions_path, method: :get do |f| %>
     <div class="row">
       <% Settings.questions.options.each do |option| %>
         <div class="col-md-2">
@@ -34,3 +34,4 @@
   <%= link_to t("questions.new"), new_user_question_path(current_user),
     class: "btn btn-success" %>
 </div>
+<%= paginate @questions %>
