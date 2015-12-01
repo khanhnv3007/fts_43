@@ -2,7 +2,7 @@
   <td><%= link_to user.name, user %></td>
   <td><%= user.email %></td>
   <td>
-    <%= form_for [:admin, user] do |f| %>
+    <%= form_for [:admin, user], remote: true do |f| %>
       <%= f.hidden_field :role, value: user.admin? ? :user : :admin %>
       <%= f.submit user.admin? ? t("admin.user.set_normal_user") : t("admin.user.set_admin_user"),
         class: "btn btn-success btn-md" %>

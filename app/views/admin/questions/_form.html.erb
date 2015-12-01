@@ -5,25 +5,35 @@
 
   <%= f.label :subject %>
   <%= f.select :subject_id,
-    options_from_collection_for_select(@subjects, :id, :name),
-    class: "form-control" %>
+    options_from_collection_for_select(@subjects, :id, :name, params[:subject_id]),
+    {}, {class: "form-control"} %>
 
   <%= f.label :content %>
   <%= f.text_field :content, class: "form-control" %>
 
-  <%= f.label :option %>
-  <div id="answers">
+  <%= f.label :question_type %>
+  <%= f.select :question_type, Question.question_types.keys.to_a, {selected: "0"},
+    {class: "form-control"} %>
+
+  <%= f.label :answer %>
+  <div id="choice">
+    <div id="answers">
+      <%= f.fields_for :answers do |answer| %>
+        <div class="answers">
+          <%= render "answer_form", f: answer %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-offset-0 col-md-1">
+      <%= link_to_add_fields raw("#{t :add}"), f, :answers %>
+      <br>
+    </div>
+  </div>
+  <div id="text">
     <%= f.fields_for :answers do |answer| %>
-      <div class="answers">
-        <%= render "answer_form", f: answer %>
-      </div>
+      <%= answer.text_field :content, class: "form-control" %>
     <% end %>
   </div>
 
-  <div>
-    <%= add_child_button t("questions.add_option"), :answers,
-      "#answers" %>
-    <%= new_fields_template f, :answers %>
-  </div>
   <%= f.submit t("questions.create"), class: "btn btn-primary" %>
 <% end %>

@@ -13,7 +13,10 @@ class Admin::UsersController < ApplicationController
     else
       flash[:failed] = t "admin.user.update_fail"
     end
-    redirect_to admin_users_path
+    respond_to do |format|
+      format.html {redirect_to admin_users_path}
+      format.js
+    end
   end
 
   def destroy
@@ -22,7 +25,10 @@ class Admin::UsersController < ApplicationController
     else
       flash[:failed] = t "admin.user.destroy_fail"
     end
-    redirect_to admin_users_path
+    respond_to do |format|
+      format.html {redirect_to admin_users_path}
+      format.js
+    end
   end
 
   private
