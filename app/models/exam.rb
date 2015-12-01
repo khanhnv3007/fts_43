@@ -43,7 +43,7 @@ class Exam < ActiveRecord::Base
   end
 
   def send_exam_noti
-    SendExamNoti.perform_async self.id if self.checked?
+    SendExamNoti.perform_async self.id
   end
 
   private

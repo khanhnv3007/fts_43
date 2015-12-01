@@ -22,6 +22,7 @@ gem "time_difference"
 group :development, :test do
   gem "byebug"
   gem "sqlite3"
+  gem "letter_opener"
 end
 
 group :production do
