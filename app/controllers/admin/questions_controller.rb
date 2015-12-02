@@ -30,10 +30,13 @@ class Admin::QuestionsController < Admin::BaseController
   def update
     if @question && @question.update_attributes(question_params)
       flash[:sucess] = t "questions.success"
-      redirect_to admin_questions_path
     else
       flash[:danger] = t "questions.fail"
       render :edit
+    end
+    respond_to do |format|
+      format.html {redirect_to admin_questions_path}
+      format.js
     end
   end
 
