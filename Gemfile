@@ -22,6 +22,7 @@ gem "omniauth"
 gem "omniauth-facebook"
 gem "bootstrap-social-rails"
 gem "figaro"
+gem "omniauth-google-oauth2"
 
 group :development, :test do
   gem "byebug"

@@ -25,4 +25,8 @@ Devise.setup do |config|
     ENV["pusher_app_id"],
     ENV["pusher_secret"],
     callback_url: ENV["callback_url"]
+  config.omniauth :google_oauth2,
+    ENV["google_client_id"],
+    ENV["google_secret"],
+    callback_url: ENV["callback_url"]
 end
