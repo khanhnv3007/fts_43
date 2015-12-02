@@ -127,6 +127,7 @@ en:
     filter: "Filter"
     manage: "Manage questions"
     delete: "Delete"
+    search_placeholder: "Search by question content or subject name..."
   mail:
     exam_subject: "Exam Results Notification"
     hi: "Hi "
