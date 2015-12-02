@@ -5,6 +5,11 @@ class Admin::ExamsController < Admin::BaseController
     option = params[:option].nil? ? Settings.exam.all : params[:option]
     @exams =  Exam.send(option).page(params[:page])
       .per Settings.pagination.exams_per_page
+    respond_to do |format|
+      format.html
+      format.csv {send_data @exams.to_csv}
+      format.xls
+    end
   end
 
   def show
