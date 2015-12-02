@@ -111,6 +111,10 @@ en:
       true_answer: "True answer"
       false_answer: "False answer"
       status: "Status"
+      id: "Exam ID"
+      subect_id: "Subject ID"
+      user_id: "User ID"
+      score: "Score"
   questions:
     new: "New Question"
     success: "Operation successed!"
@@ -137,3 +141,7 @@ en:
     reminder: "Exam reminder"
     exam: "Exam"
     remind: "Please finish your exam before it can be deleted automatically tomorrow."
+  export:
+    csv: "CSV"
+    xls: "Exel"
+    dl: "Download"

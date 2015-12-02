@@ -12,21 +12,32 @@ class Exam < ActiveRecord::Base
 
   validate :generate_question, on: :create
 
-  def self.check_exam_daily
-    Exam.all.each do |exam|
-      if exam.start? && Time.now - exam.created_at > 8.hours
-        exam.destroy
-      end
-      if exam.start? && Time.now - exam.created_at < 8.hours
-        UserMailer.send_exam_reminder(exam).deliver_now
+  class << self
+    def to_csv options = {}
+      CSV.generate options do |csv|
+        csv << column_names
+        all.each do |exam|
+          csv << exam.attributes.values_at(*column_names)
+        end
       end
     end
-  end
 
-  def self.check_exam_monthly
-    Exam.all.each do |exam|
-      if exam.start? && Time.now - exam.created_at > 8.hours
-        exam.destroy
+    def check_exam_daily
+      Exam.all.each do |exam|
+        if exam.start? && Time.now - exam.created_at > 8.hours
+          exam.destroy
+        end
+        if exam.start? && Time.now - exam.created_at < 8.hours
+          UserMailer.send_exam_reminder(exam).deliver_now
+        end
+      end
+    end
+
+    def check_exam_monthly
+      Exam.all.each do |exam|
+        if exam.start? && Time.now - exam.created_at > 8.hours
+          exam.destroy
+        end
       end
     end
   end

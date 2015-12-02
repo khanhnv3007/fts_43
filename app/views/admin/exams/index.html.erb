@@ -34,3 +34,8 @@
   </table>
 </div>
 <%= paginate @exams %>
+<p>
+  <%= t("export.dl") %>
+  <%= link_to t("export.csv"), admin_exams_path(format: "csv") %> |
+  <%= link_to t("export.xls"), admin_exams_path(format: "xls") %>
+</p>
