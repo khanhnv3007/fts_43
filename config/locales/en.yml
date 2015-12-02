@@ -48,6 +48,7 @@ en:
     remember_me: "Remember me"
     update: "Update info"
     fb: "Facebook"
+    gplus: "Google"
   exam:
     title: "Exam management"
     filter: "Filter"

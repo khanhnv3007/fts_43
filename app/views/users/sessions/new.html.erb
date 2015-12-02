@@ -21,6 +21,9 @@
       <a class="btn btn-block btn-social btn-facebook"
         href="<%= user_omniauth_authorize_path(:facebook) %>">
         <span class="fa fa-facebook"></span> <%= t("user.fb") %>
+      <a class="btn btn-block btn-social btn-google-plus"
+        href="<%= user_omniauth_authorize_path(:google_oauth2) %>">
+        <span class="fa fa-google-plus"></span> <%= t("user.gplus") %>
       </a>
     </div>
   </div>
