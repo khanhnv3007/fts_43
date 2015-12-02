@@ -47,6 +47,7 @@ en:
     new_questions: "Contribute question"
     remember_me: "Remember me"
     update: "Update info"
+    fb: "Facebook"
   exam:
     title: "Exam management"
     filter: "Filter"
