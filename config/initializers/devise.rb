@@ -20,4 +20,9 @@ Devise.setup do |config|
   config.scoped_views = true
 
   config.sign_out_via = :delete
+
+  config.omniauth :facebook,
+    ENV["pusher_app_id"],
+    ENV["pusher_secret"],
+    callback_url: ENV["callback_url"]
 end

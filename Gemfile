@@ -18,6 +18,10 @@ gem "cancancan"
 gem "sidekiq"
 gem "whenever"
 gem "time_difference"
+gem "omniauth"
+gem "omniauth-facebook"
+gem "bootstrap-social-rails"
+gem "figaro"
 
 group :development, :test do
   gem "byebug"
