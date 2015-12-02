@@ -18,4 +18,12 @@ module ApplicationHelper
     link_to name, "#", onclick: "return add_fields(this, \"#{association}\",
       \"#{escape_javascript(fields)}\")", class: "btn btn-info btn-block"
   end
+
+  def question_status_label status
+    if status == "waiting"
+      "warning"
+    else
+      status == "approved" ? "success" : "danger"
+    end
+  end
 end
