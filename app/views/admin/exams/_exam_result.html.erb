@@ -12,23 +12,43 @@
     <p>
       <ol>
         <% @exam.results.each do |result| %>
-        <li>
-          <%= result.question.content %>
-        </li>
-        <ol type="a">
-          <% result.question.answers.each do |answer| %>
-            <li style="color:<%= answer.is_correct? ? "green" : "red" %>">
-              <%= check_box_tag :answer_id, answer.id, !result.answer.nil? &&
-                result.answer.id == answer.id ? true : false,
-                disabled: true %>
-              <label> <%= answer.content %> </label>
-            </li>
+          <li>
+            <%= result.question.content %>
+          </li>
+          <%= form_for [:admin, @exam] do |f| %>
+              <% case result.question.question_type %>
+              <% when Settings.questions.type.single %>
+                <% result.question.answers.each do |answer| %>
+                  <%= f.radio_button :content_answer, answer.id,
+                    {checked: result.content_answer.include?(answer.id.to_s),
+                    multiple: true, disabled: true, class: "radio_answer"} %>
+                <%= answer.content %><br/>
+              <% end %>
+              <% when Settings.questions.type.multiple %>
+                <% result.question.answers.each do |answer| %>
+                  <%= f.check_box :content_answer, {checked: result.content_answer
+                    .include?(answer.id.to_s),
+                    multiple: true, disabled: true, class: "radio_answer"},
+                    answer.id, false %>
+                  <%= answer.content %><br/>
+              <% end %>
+              <% when Settings.questions.type.text %>
+                <%= text_field_tag :content_answer, result.content_answer,
+                  disabled: true %>
+              <% end %>
+            <% unless result.is_correct? %>
+              <div class="result_false">
+                <%= t "false_answer" %>
+              </div>
+            <% else %>
+              <div class="result_true">
+                <%= t "true_answer" %>
+              </div>
+            <% end %>
+            <br><br>
           <% end %>
+        <% end %>
         </ol>
-        <%= result.is_correct? ? t("true_answer") : t("false_answer") %>
-        <br><br>
-      <% end %>
-      </ol>
     </p>
   </div>
 </div>

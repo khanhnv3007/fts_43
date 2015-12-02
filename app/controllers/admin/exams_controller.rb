@@ -1,5 +1,5 @@
-class Admin::ExamsController < ApplicationController
-  load_and_authorize_resource
+class Admin::ExamsController < Admin::BaseController
+  load_resource
 
   def index
     option = params[:option].nil? ? Settings.exam.all : params[:option]
