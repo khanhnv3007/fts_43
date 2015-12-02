@@ -1,24 +1,25 @@
-<div class="panel panel-success">
-  <div class="panel-heading">
-    <h4 class="text-center">
-      <%= t "subject.name" %>:
-      <%= link_to @exam.subject.name, @exam.subject %>
-    </h4>
-</div>
-<div class="panel-body">
-  <p>
-    <%= form_for [:admin, @exam] do |f| %>
-    <%= f.hidden_field :status, value: :checked %>
-    <ol>
-      <%= f.fields_for :results do |result| %>
-        <%= render "check_form", f: result %>
-      <% end %>
-    </ol>
-    <div class="row">
-      <div class="col-md-2 col-md-offset-5">
-        <%= f.submit t("exam.submit"), class: "btn btn-info" %>
-      </div>
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h4 class="text-center">
+        <%= t "subject.name" %>:
+        <%= link_to @exam.subject.name, @exam.subject %>
+      </h4>
     </div>
-    <% end %>
-  </p>
-</div>
+  </div>
+  <div class="panel-body">
+    <p>
+      <%= form_for [:admin, @exam] do |f| %>
+      <%= f.hidden_field :status, value: :checked %>
+      <ol>
+        <%= f.fields_for :results do |result| %>
+          <%= render "check_form", f: result %>
+        <% end %>
+      </ol>
+      <div class="row">
+        <div class="col-md-2 col-md-offset-5">
+          <%= f.submit t("exam.submit"), class: "btn btn-info" unless @exam.start? %>
+        </div>
+      </div>
+      <% end %>
+    </p>
+  </div>

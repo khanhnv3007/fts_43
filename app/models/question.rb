@@ -1,7 +1,7 @@
 class Question < ActiveRecord::Base
   include StateAble
   acts_as_paranoid
-  after_destroy :update_question_as_deleted
+  before_destroy :update_question_as_deleted
 
   belongs_to :subject
   belongs_to :user
