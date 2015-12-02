@@ -109,6 +109,7 @@ en:
       filter: "Filter"
       true_answer: "True answer"
       false_answer: "False answer"
+      status: "Status"
   questions:
     new: "New Question"
     success: "Operation successed!"
