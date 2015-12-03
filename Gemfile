@@ -24,6 +24,7 @@ gem "bootstrap-social-rails"
 gem "figaro"
 gem "omniauth-google-oauth2"
 gem "font-awesome-rails"
+gem "friendly_id"
 
 group :development, :test do
   gem "byebug"
