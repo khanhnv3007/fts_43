@@ -16,7 +16,7 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def index
-    @q = Question.ransack params[:q]
+    @q = Question.with_deleted.ransack params[:q]
     option = params[:option].nil? ? Settings.questions.all : params[:option]
     @questions = @q.result.includes(:subject).send(option).page(params[:page])
       .per Settings.pagination.questions_per_page
@@ -41,7 +41,7 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def destroy
-    if @question.destroy
+    if @question.really_destroy!
       flash[:success] = t "questions.success"
     else
       flash.now[:danger] = t "questions.fail"
