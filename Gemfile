@@ -25,6 +25,7 @@ gem "figaro"
 gem "omniauth-google-oauth2"
 gem "font-awesome-rails"
 gem "friendly_id"
+gem "shareable"
 
 group :development, :test do
   gem "byebug"
