@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/radar/paranoia.git
+  revision: 3502f4520bedc66cc89c31520be12356126c0c75
+  branch: rails4
+  specs:
+    paranoia (2.1.4)
+      activerecord (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -243,6 +251,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   omniauth-google-oauth2
+  paranoia!
   pg
   puma
   rails (= 4.2.4)

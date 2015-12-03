@@ -26,6 +26,7 @@ gem "omniauth-google-oauth2"
 gem "font-awesome-rails"
 gem "friendly_id"
 gem "shareable"
+gem "paranoia", github: "radar/paranoia", branch: "rails4"
 
 group :development, :test do
   gem "byebug"

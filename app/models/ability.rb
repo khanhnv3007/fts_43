@@ -10,7 +10,7 @@ class Ability
       can [:update, :show], User, id: user.id
       can [:index], Subject
       can [:new, :create, :index], Question
-      can [:edit, :update], Question, user_id: user.id
+      can [:edit, :update, :destroy], Question, user_id: user.id
       can [:crud], Exam, user_id: user.id
     end
   end

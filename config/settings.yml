@@ -18,6 +18,7 @@ questions:
     - waiting
     - approved
     - edited
+    - deleted
     - single
     - multiple
     - text
