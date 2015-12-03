@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 /* mixins, variables, etc. */
 
@@ -262,6 +263,7 @@ input.radio_exams, .checkbox_answer {
 }
 input.radio_answer {
   width: inherit;
+
 }
 
 .result_true{
@@ -269,4 +271,10 @@ input.radio_answer {
 }
 .result_false{
   color: red
+}
+
+.filter{
+  display: inline;
+  font-weight: normal;
+  padding-left: 15px;
 }

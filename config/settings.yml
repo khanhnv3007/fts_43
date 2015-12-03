@@ -18,6 +18,9 @@ questions:
     - waiting
     - approved
     - edited
+    - single
+    - multiple
+    - text
   all: "all"
   type:
     single: single

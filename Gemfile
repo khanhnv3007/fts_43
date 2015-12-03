@@ -23,6 +23,7 @@ gem "omniauth-facebook"
 gem "bootstrap-social-rails"
 gem "figaro"
 gem "omniauth-google-oauth2"
+gem "font-awesome-rails"
 
 group :development, :test do
   gem "byebug"
