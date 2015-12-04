@@ -4,17 +4,19 @@
   <%= form_for user_questions_path(current_user), method: :get do |f| %>
     <div class="row">
       <% Settings.questions.options.each do |option| %>
-        <div class="col-md-2">
+        <div class="filter">
           <%= radio_button_tag :option, option,
             (checked = true if params[:option] == option),
               class: "radio_answer", value: option %>
           <%= option %>
         </div>
-        <% end %>
-        <div class="col-md-off-set-4 col-md-2">
+      <% end %>
+      <p>
+        <div class="col-md-offset-3 col-md-2">
           <%= f.submit t("questions.filter"),
             class: "btn btn-primary form-control"%>
         </div>
+      </p>
     </div>
   <% end %>
 </h3>

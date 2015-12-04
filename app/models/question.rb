@@ -1,5 +1,9 @@
 class Question < ActiveRecord::Base
   include StateAble
+  include PublicActivity::Model
+  tracked owner: Proc.new {|controller, model| controller.current_user ?
+    controller.current_user : nil}
+
   acts_as_paranoid
   before_destroy :update_question_as_deleted
 
