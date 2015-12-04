@@ -1,15 +1,11 @@
 <% if activity.owner == current_user %>
   <li class="list-group-item">
-    <span class="glyphicon glyphicon-ok"></span>
+    <span class="glyphicon glyphicon-remove"></span>
     <small class="text-muted">
       <%= a.created_at.strftime("%H:%M:%S %-d %B %Y") %>
     </small>
     <br/>
     <strong><%= activity.owner.name %></strong>
-    <% if a.trackable %>
-      <%= t("user.question_was_updated") %>
-    <% else %>
-      <%= t "user.question_error" %>
-    <% end %>
+    <%= t "user.exam_deleted" %>
   </li>
 <% end %>
