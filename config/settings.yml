@@ -3,6 +3,7 @@ pagination:
   users_per_page: 5
   exams_per_page: 10
   questions_per_page: 10
+  activities: 20
 exam:
   questions_per_exam: 10
   time_in_minutes: 10

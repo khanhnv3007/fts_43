@@ -1,4 +1,7 @@
 class Exam < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked owner: Proc.new {|controller, model| controller.current_user ?
+    controller.current_user : nil}
 
   after_update :send_exam_noti
   belongs_to :subject

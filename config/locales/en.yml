@@ -33,6 +33,7 @@ en:
       promotion: "Please login to take the exams"
       create_account_free: "to create account for free!"
       or: "Or"
+      activity: "Activity"
   user:
     new_password: "New password"
     confirm_password: "Confirm new password"
@@ -49,6 +50,13 @@ en:
     update: "Update info"
     fb: "Facebook"
     gplus: "Google"
+    exam_was_updated: "has been resolved"
+    exam_was_created: "was created"
+    exam_error: "Exam has been deleted!"
+    question_was_created: "was created a question"
+    question_was_updated: "was updated a question"
+    question_error: "Question has been deleted!"
+    question_deleted: "was deleted a question"
   exam:
     title: "Exam management"
     filter: "Filter"
@@ -116,6 +124,7 @@ en:
       subect_id: "Subject ID"
       user_id: "User ID"
       score: "Score"
+      checked: "has been checked"
   questions:
     new: "New Question"
     success: "Operation successed!"

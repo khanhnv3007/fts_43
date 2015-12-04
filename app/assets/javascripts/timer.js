@@ -9,7 +9,7 @@ function time_remain(total_in_seconds){
     $("[type='submit']").remove();
     set_time(0,0);
   } else if (total_in_seconds == 0){
-    $("form").submit();
+    $(".edit_exam").submit();
     set_time(0,0);
   } else {
     minutes = Math.floor(total_in_seconds / 60);

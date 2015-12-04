@@ -27,6 +27,7 @@ gem "font-awesome-rails"
 gem "friendly_id"
 gem "shareable"
 gem "paranoia", github: "radar/paranoia", branch: "rails4"
+gem "public_activity"
 
 group :development, :test do
   gem "byebug"
