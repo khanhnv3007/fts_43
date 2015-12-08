@@ -21,6 +21,7 @@ RSpec.configure do |config|
 
   config.filter_rails_from_backtrace!
   config.include Devise::TestHelpers, type: :controller
+  config.include Capybara::DSL
 
   RSpec.configure do |config|
 

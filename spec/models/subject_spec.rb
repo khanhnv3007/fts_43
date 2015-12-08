@@ -8,8 +8,10 @@ describe Subject do
   end
 
   describe "validation" do
-    it {is_expected.to ensure_length_of(:name).is_at_most(100)}
-    it {is_expected.to validate_presence_of(:name)}
+    before do
+      subject.name = "a"*110
+    end
+    it {expect(subject).to_not be_valid}
   end
 
   describe "association" do
