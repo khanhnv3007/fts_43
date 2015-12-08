@@ -33,6 +33,10 @@ group :development, :test do
   gem "byebug"
   gem "sqlite3"
   gem "letter_opener"
+  gem "rspec-rails"
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "database_cleaner"
 end
 
 group :production do
