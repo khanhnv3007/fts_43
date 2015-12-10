@@ -28,6 +28,7 @@ gem "friendly_id"
 gem "shareable"
 gem "paranoia", github: "radar/paranoia", branch: "rails4"
 gem "public_activity"
+gem "rspec-collection_matchers"
 
 group :development, :test do
   gem "byebug"
