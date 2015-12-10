@@ -1,11 +1,18 @@
 class User < ActiveRecord::Base
+  enum role: [:user,:admin]
+
   has_many :questions, dependent: :destroy
   has_many :exams, dependent: :destroy
-  enum role: [:user,:admin]
 
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable,
     :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+
+    validates :name, presence: true, length: {maximum: 50}
+    validates :chatwork_id, presence: true,
+      length: {maximum: 50}, uniqueness: true
+    validates :email, length: {maximum: 255}
+    validates :role, presence: true
 
   class << self
     def from_omniauth auth
