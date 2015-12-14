@@ -1,9 +1,10 @@
 require "rails_helper"
 
 describe Admin::SubjectsController do
-  first_subject = Subject.first
-  user = User.first
-  before{sign_in user}
+  let!(:subject){FactoryGirl.create :subject}
+  let!(:admin){FactoryGirl.create :admin}
+  before{sign_in admin}
+  after{Subject.destroy_all}
 
   describe "can GET #index" do
     it "render subject index success" do
@@ -29,4 +30,18 @@ describe Admin::SubjectsController do
     it{expect(flash[:success]).to be_present}
     end
   end
+
+  describe "GET edit" do
+    before{get :edit, id: subject}
+    it{expect(assigns(:subject)).to eq subject}
+    it{expect(response).to render_template :edit}
+    it{expect(response.status).to eq 200}
+  end
+
+  describe "DELETE destroy" do
+    before{delete :destroy, id: subject}
+    it{expect(flash[:success]).to be_present}
+    it{expect(response).to redirect_to [:admin, :subjects]}
+  end
+
 end
