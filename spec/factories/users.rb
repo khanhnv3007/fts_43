@@ -2,7 +2,7 @@ FactoryGirl.define do
   sequence(:email){Faker::Internet.email}
   sequence(:chatwork_id){Faker::Lorem.words.join("_")}
   password = Faker::Lorem.characters 10
-  
+
   factory :user do
     name Faker::Name.name
     email
