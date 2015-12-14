@@ -31,6 +31,6 @@ class ExamsController < ApplicationController
   private
   def exam_params
     params.require(:exam).permit :user_id, :status, :subject_id, results_attributes: [
-      :id, :content_answer, content_answer: []]
+      :id, content_answer: []]
   end
 end

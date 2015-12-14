@@ -15,8 +15,7 @@
     <% when Settings.questions.type.multiple %>
       <% f.object.question.answers.each do |answer| %>
         <%= f.check_box :content_answer,
-          {checked: f.object.content_answer.include?(answer.id.to_s),
-          multiple: true, class: "radio_answer"}, answer.id, false %>
+          {multiple: true, class: "radio_answer"}, answer.id, false %>
         <%= answer.content %><br/>
     <% end %>
     <% when Settings.questions.type.text %>
