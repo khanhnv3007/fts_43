@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :exam do
-    subject Subject.first
-    user User.first
-    status :uncheck
+    subject {FactoryGirl.create :subject}
+    user {FactoryGirl.create :user}
   end
 
 end
